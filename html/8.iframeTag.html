@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>8.iframe标签</title>
+</head>
+<body>
+    我是一个单独的完整的页面<br/>
+    <!-- iframe 标签可以在页面上开辟一个小区域显示一个单独的页面
+            iframe 和 a 标签组合使用的步骤：
+                1、在iframe标签中使用name属性定义一个名称
+                2、在a标签的target属性上设置iframe的name的属性值
+    -->
+    <iframe src="6.tableTag.html" width="500" height="400" name="frame1"></iframe>
+    <br/>
+    <br/>
+    <ul>
+        <li><a href="1.Hello.html" target="frame1">1.Hello.html</a></li>
+        <li><a href="5.img.html" target="frame1">5.img.html</a></li>
+        <li><a href="7.irregular_table.html" target="frame1">7.irregular_table.html</a></li>
+    </ul>
+</body>
+</html>
