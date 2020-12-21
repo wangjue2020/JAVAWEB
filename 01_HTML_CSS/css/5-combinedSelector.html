@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Combined Selector</title>
+    <style type="text/css">
+        .class01, #id01{
+            color:blue;
+            font-size:20px;
+            border:1px yellow solid;
+        }
+    </style>
+</head>
+<body>
+    <!-- 组合选择器可以让多个选择器共用同一个代码-->
+    <!--需求1：修改class="class01" 的div标签和id="001" 所有的span 标签，
+    字体颜色为蓝色， 字体大小20个像素。边框为1像素黄色实线-->
+
+    <div class="class01"> div tag class01</div><br/>
+    <span id="id01">span tag id01</span><br/>
+    <div>div tag</div><br/>
+    <div >div tag id01</div><br/>
+</body>
+</html>
