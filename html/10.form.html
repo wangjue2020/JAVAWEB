@@ -24,20 +24,39 @@
                 textarea 表示多行文本输入框 （起始标签和结束标签中的内容是默认值）
                     rows 属性设置可以显示几行的高度
                     cols 属性设置每行可以显示几个字符宽度
+
+                form 标签是表单标签
+                    action 属性设置提交的服务器地址
+                    method 属性设置提交的方式GET(默认值)或POST
+
+                表单提交的时候，数据没有发送给服务器的三种情况：
+                    -- 表单没有name属性值
+                    -- 单选、复选（下拉列表中的option标签）都需要添加value属性
+                    -- 表单项不再提交的form标签中
+
+                GET请求的特点是：
+                    1、浏览器地址栏中的地址是：action属性[+?+请求参数]
+                        请求参数的格式是:name=value&name=value...
+                    2、不安全
+                    3、它有长度限制
+                POST请求的特点是：
+                    1、浏览器地址栏中只有action属性值
+                    2、相对于GET请求安全一些
+                    3、理论上没有数据长度的限制
         -->
-        <form>
-            用户名称： <input type="text" value="默认值"/><br/>
+        <form action="http://localhost:8080" method="get">
+            用户名称： <input name="username" type="text" value="默认值"/><br/>
+            用户密码： <input name="password" type="password" value="abc" maxlength="3"/><br/>
             用户密码： <input type="password" value="abc" maxlength="3"/><br/>
-            用户密码： <input type="password" value="abc" maxlength="3"/><br/>
-            性别：    <input type="radio" name="sex" checked="checked"/>Male<input type="radio" name="sex"/>Female <br/>
-            兴趣爱好： <input type="checkbox" checked="checked"/>Java<input type="checkbox" />C++<input type="checkbox" checked="checked"/>Python<br/>
-            国籍：    <select>
-                        <option >--请选择国籍--</option>
-                        <option>CAN</option>
-                        <option>JAN</option>
-                        <option selected="selected">CHN</option>
+            性别：    <input type="radio" name="sex" checked="checked" value="M"/>Male<input type="radio" name="sex" value="F"/>Female <br/>
+            兴趣爱好： <input name="hobby" type="checkbox" checked="checked" value="J"/>Java<input type="checkbox" value="CPP" name="hobby"/>C++<input type="checkbox" checked="checked" value="P" name="hobby"/>Python<br/>
+            国籍：    <select name="nationality">
+                        <option value="">--请选择国籍--</option>
+                        <option value="CAN">CAN</option>
+                        <option value="JAN">JAN</option>
+                        <option selected="selected" value="CHN">CHN</option>
                     </select><br/>
-            自我评价：   <textarea rows="10" cols="20" >I am default value</textarea><br/>
+            自我评价：   <textarea rows="10" cols="20" name="desc">I am default value</textarea><br/>
             <input type="reset" value="Reset"/>
             <input type="submit" value="Submit"/>
             <input type="button" value="button"/>
