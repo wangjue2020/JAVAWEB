@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object</title>
+    <script type="text/javascript">
+        /*
+        方式一：
+            对象的定义：
+                var 变量名 = new Object(); // 对象实例（空对象）
+                变量名.属性名 = 值 //定义属性
+                变量名.函数名 = new function (){} //定义函数（方法）
+             对象的访问：
+                   变量名.属性名/函数名
+         方式二：
+            对象的定义：
+                var 变量名 = {} //定义一个空对象
+                var 变量名 = {
+                    属性名：值，
+                    属性名：值，
+                    函数名：function(){}
+                }
+            对象的访问：
+                   变量名.属性名/函数名
+         */
+        var student = new Object();
+        student.studentId = 123456;
+        student.university = "University of Toronto"
+        student.getUniversity = function (){
+            alert(this.university);
+            return this.studentId;
+        }
+        alert(student.getUniversity());
+
+
+        var Jack = {
+            name: "Jack",
+            age: 18,
+            getAge : function(){
+                return this.age;
+            }
+        }
+        alert(Jack.getAge());
+    </script>
+</head>
+<body>
+
+</body>
+</html>

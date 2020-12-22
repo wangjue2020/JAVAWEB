@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+    <script type="text/javascript">
+        //JavaScript 语言中的数组，只要我们通过数组下标复制，那么最大的下标值，就会自动的给数组做扩容操作
+        var arr = [];//定义一个数组
+        var arr1 = [0,1,2,"abc"];
+        alert(arr.length);
+        arr[0] = 12;
+
+        alert(arr[0] + ":" + arr.length);
+        arr[2] = "abc";
+        alert(arr + ":"+arr.length);
+        //alert(arr[1]); //undefined
+        for ( var i = 0; i < arr.length; i++){
+            alert(arr[i]);
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

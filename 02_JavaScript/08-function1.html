@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function1</title>
+    <script type="text/javascript">
+        //JS 中允许方法的重载，但是JS中函数的重载会直接覆盖掉上一次对此函数的定义
+        var fun = function(){
+            alert("called function without parameter");
+        }
+
+        var fun1 = function( a, b){
+            alert("called function with parameter: " + a +" , "+b);
+            return a+b;
+        }
+
+
+        fun();
+        var result = fun1(12,'abc');
+        var result1 = fun1(12,23);
+        alert(result);
+        alert(result1);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

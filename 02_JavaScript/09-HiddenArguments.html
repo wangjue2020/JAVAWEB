@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hidden Arguments</title>
+    <script type="text/javascript">
+        /*
+        就是在function 函数中不需要定义，但却可以直接用来获取所有参数的变量，称之为隐形参数
+         */
+        var fun = function(){
+            alert(arguments.length);
+            for ( var i = 0; i < arguments.length; i++){
+                alert(arguments[i]);
+            }
+        }
+        //需求：要求编写一个函数，需要返回所有参数相加的和
+        var sum = function(){
+            var res = 0;
+            for ( var i = 0; i < arguments.length; i++){
+                res += arguments[i];
+            }
+            return res;
+        }
+
+        fun(1,"abc");
+        alert(sum(1,2,3,4));
+        alert(sum("1",2,3,4));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
