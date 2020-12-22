@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function onchangeFunction(){
+            console.log("静态注册onchange 事件");
+        }
+
+        window.onload = function() {
+            var obj = document.getElementById("nation");
+            obj.onchange = function() {
+                console.log("动态注册onchange event");
+            }
+        }
+    </script>
+</head>
+<body>
+        Your gender:
+        <select onchange="onchangeFunction();">
+            <option>Female</option>
+            <option>Male</option>
+        </select>
+
+        Your nationality:
+        <select id="nation">
+            <option>CHN</option>
+            <option>CAN</option>
+            <option>JAN</option>
+        </select>
+</body>
+</html>

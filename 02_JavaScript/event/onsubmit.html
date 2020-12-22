@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function submit1(){
+            alert("static onsubmit method");
+            //return false 可以阻止提交跳转
+            return false;
+        }
+
+        window.onload = function () {
+            var obj = document.getElementById("submit2");
+            obj.onsubmit = function(){
+                console.log("dynamic onsubmit method");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="http://localhost:8080" method="get" onsubmit="return submit1();">
+        <button type="submit" >submit1</button>
+    </form>
+    <form action="http://localhost:8080" method="get" id="submit2">
+        <button type="submit" >submit2</button>
+    </form>
+</body>
+</html>
