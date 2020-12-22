@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function selectAll(){
+            //document.getElementsByTagName(); 是根据指定的标签名来进行查询并返回
+            //这个集合的操作跟数组一样
+            //集合中每个元素都是dom对象
+            //这个集合中的元素顺序是他们在html页面中从上到下的顺序
+            var hobbies = document.getElementsByTagName("input");
+            for(var i = 0; i < hobbies.length; i++){
+                var hobbyobj = hobbies[i];
+                //checked 表示复选框的选中状态。 如果选中是true， 不选中是false
+                hobbyobj.checked=true;
+            }
+        }
+        function deselectAll(){
+            var hobbies = document.getElementsByTagName("input");
+            for(var i = 0; i < hobbies.length; i++){
+                var hobbyobj = hobbies[i];
+                hobbyobj.checked=false;
+            }
+        }
+        function inverseChoice(){
+            var hobbies = document.getElementsByTagName("input");
+            for(var i = 0; i < hobbies.length; i++){
+                var hobbyobj = hobbies[i];
+                if(hobbyobj.checked == true){
+                    hobbyobj.checked = false;
+                }else{
+                    hobbyobj.checked=true;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+Hobby:
+<input type="checkbox" value="CPP"/>C++
+<input type="checkbox" value="PYT"/>Python
+<input type="checkbox" value="JAV"/>JAVA
+<br/>
+<button type="button" onclick="selectAll();">select all</button>
+<button type="button" onclick="deselectAll();">deselect all</button>
+<button type="button" onclick="inverseChoice();">inverse choice</button>
+</body>
+</html>
