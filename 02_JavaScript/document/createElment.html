@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            //现在需要我们使用js代码来创建html标签，并显示在页面上
+            //标签的内容就是<div>Merry Christmas</div>
+            var divObj = document.createElement("div");//在内存中是<div></div>
+            divObj.innerHTML="Merry Christmas";//<div>Merry Christmas</div> 但是，还是只是在内存中
+
+            document.body.appendChild(divObj);//添加子元素
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
