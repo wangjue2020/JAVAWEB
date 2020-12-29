@@ -6,7 +6,32 @@
 <link rel="stylesheet" type="text/css" href="styleB/css.css" />
 <script type="text/javascript" src="../../script/jquery-1.7.2.js"></script>
 <script type="text/javascript">
+	$(function(){
+		var deleteFunction = function(){
+            var name = $(this).parent().parent().find("td:first").text();
+            var answer = confirm("delete "+name+"?");
+            if (answer)
+                $(this).parent().parent().remove();
+            return false;
+		}
+	    $("#addEmpButton").click(function () {
+				var name = $("#empName").val();
+				var email = $("#email").val();
+				var salary = $("#salary").val();
+				var index = $("#employeeTable tr").length;
+            	var temp = $("<tr>\n" +
+                "\t\t\t<td>"+name+"</td>\n" +
+                "\t\t\t<td>"+email+"</td>\n" +
+                "\t\t\t<td>"+salary+"</td>\n" +
+                "\t\t\t<td><a href=\"deleteEmp?id="+index+"\">Delete</a></td>\n" +
+                "\t\t</tr>")
+				temp.appendTo("#employeeTable");
+				temp.find("a").click(deleteFunction);
 
+        });
+
+        $("a").click(deleteFunction);
+	});
 	
 	
 </script>
