@@ -73,7 +73,23 @@ a:hover {
 <script type="text/javascript" src="script/jquery-1.7.2.js"></script>
 <script type="text/javascript">
 	$(function() {
+		$("li:gt(5):not(:last)").hide();
+		$("div:eq(1)").click(function() {
 
+            if ($(this).hasClass("showless")) { //也可以用$("li:gt(5):not(:last)").is(":hidden")判断
+                $("li:gt(5):not(:last)").hide();
+                $(this).addClass("showmore");
+                $(this).removeClass("showless");
+
+                $("li:eq(0), li:eq(3), li:eq(10)").removeClass("promoted");
+			} else{
+                $("li:gt(5):not(:last)").show();
+                $(this).addClass("showless");
+                $(this).removeClass("showmore");
+                $("li:eq(0), li:eq(3), li:eq(10)").addClass("promoted");
+			}
+            return false;
+		});
 	});
 </script>
 </head>

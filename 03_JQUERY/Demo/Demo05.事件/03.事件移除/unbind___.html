@@ -8,8 +8,17 @@
 		<script type="text/javascript">
 			$(function(){
 				//给li绑定两种事件：单击和鼠标移入
+                $("li").bind("click mouseenter" , function(){
+                    alert(this.innerHTML);
+                });
 				//点击第一个button，将#bj上的单击事件移除
+                $("button:eq(0)").click(function(){
+                    $("li").unbind("click");
+                });
 				//点击第二个button，将#rl上的所有事件移除
+				$("button:eq(1)").click(function(){
+                    $("#rl").unbind();
+            	});
 			});
 		</script>
 	</head>

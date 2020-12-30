@@ -23,8 +23,22 @@
 <script type="text/javascript">
 
 	//1.原生javascript获取 事件对象
+	// window.onload = function(){
+	//     document.getElementById("areaDiv").onclick = function (event) {
+	//         console.log(event);
+	// 	}
+	// }
 	//2.JQuery代码获取 事件对象
-	//3.使用bind同时对多个事件绑定同一个函数。怎么获取当前操作是什么事件。
+	$(function(){
+	    $("#areaDiv").click(function(event){
+	        console.log(event);//会出现点击对象
+		});
+        //3.使用bind同时对多个事件绑定同一个函数。怎么获取当前操作是什么事件。
+		$("#areaDiv").bind("click mouseover mouseout", function(event){
+		   console.log(event);//会根据不同的事件log出不同的事件对象
+		});
+	});
+
 
 
 </script>

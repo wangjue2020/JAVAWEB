@@ -34,24 +34,37 @@
 		
 		$('#btn01').click(function(){
 			//addClass() - 向被选元素添加一个或多个类
-			
+            $divEle.addClass("redDiv blueBorder");
 		});
-		
+		var count = 0;
 		$('#btn02').click(function(){
-			//removeClass() - 从被选元素删除一个或多个类 
-			
+			//removeClass() - 从被选元素删除一个或多个类
+            $divEle.removeClass();
+			if(count==0){
+                $divEle.removeClass("blueBorder");
+			    count++;
+			}else{
+                $divEle.removeClass("redDiv");
+                count=0;
+			}
+
 		});
 	
 		
 		$('#btn03').click(function(){
 			//toggleClass() - 对被选元素进行添加/删除类的切换操作 
-			
+            $divEle.toggleClass("redDiv");
+            // $divEle.toggleClass();
 		});
 		
 		
 		$('#btn04').click(function(){
 			//offset() - 返回第一个匹配元素相对于文档的位置。
-		
+            // console.log($divEle.offset());
+            $divEle.offset({
+				top:100,
+				left:300
+			});
 		});
 		
 	

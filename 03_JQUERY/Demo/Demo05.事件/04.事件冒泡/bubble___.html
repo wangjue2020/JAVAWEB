@@ -35,8 +35,17 @@
 		</style>
 		<script type="text/javascript" src="jquery-1.7.2.js"></script>
 		<script type="text/javascript">
+			//事件的冒泡是指，父子元素同时监听同一个事件。当触发子元素的事件的同时，同一时间也被传到了父元素的事件里去响应
+			//如何组织事件冒泡？
+				//在子元素事件函数体内，return false;可以阻止事件的冒泡传递
 			$(function(){
-				
+				$("#content").click(function(){
+				    alert("div");
+				})
+                $("span").click(function(){
+                    alert("span");
+                    return false;
+                })
 			})
 		</script>
 	</head>
