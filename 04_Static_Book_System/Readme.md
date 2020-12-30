@@ -1,0 +1,1 @@
+Only implemented validation on register page.

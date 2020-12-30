@@ -61,4 +61,7 @@ xml 的标签属性和html的标签属性是非常类似的，属性可以提供
     >CDATA 语法可以告诉xml解析器，CDATA里面的文本内容，只是纯文本，不需要xml语法解析  
     CDATA格式：  
      <![CDATA\[这里可以把你输入的字符原样显示，不会解析xml]]>
-    
+## 5. XML解析  
+用到了lib底下的dom4j-1.6.1.jar, hamcrest-core-1.3.jar, junit-4.12.jar。  
+同时提供了dom4j-1.6.1.jar.zip， 其中包含了关于dom4j-1.6.1的doc，jar 等其他完整的文件，也可以直接使用目录下的jar  
+右键jar文件——\> add as Library——> 选择放在module Library level
