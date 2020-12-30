@@ -1,4 +1,4 @@
-##HTML 元素（标签） Tag
+## HTML 元素（标签） Tag
 > 格式：\<TagName>content\</TagName>  
 单标签：\<TagName/> eg: \<br/>换行 \<hr/>水平线  
 双标签：\<TagName>content\</TagName>  
