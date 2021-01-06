@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--base 标签设置页面相对路径工作是参照的地址-->
+    <!--href属性就是参照的地址-->
+    <base href="http://localhost:8080/07_SERVLET/a/b/">
+</head>
+<body>
+this is /a/b/c.html<br/>
+<!--有了base标签，在判断相对路径是不会参照浏览器的地址，而是依照base里面设置的地址-->
+<a href="../../index.html">index.html</a>
+
+</body>
+</html>

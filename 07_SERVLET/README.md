@@ -175,5 +175,52 @@
     302：表示请求重定向  
     404：表示请求服务器收到了，但是你要的数据不存在（请求地址错误）  
     500：表示服务器已经收到请求，但是服务器内部错误（代码错误）  
+
+## HttpServletRequest 类  
+  * HttpServletRequest 类有什么作用  
+       每次只要有请求进入Tomcat服务器，Tomcat服务器就会把请求过来的HTTP协议信息解析好封装到Request对象中。然后传递到Service方法（doGet和doPost） 中给我们使用。我们可以通过HttpServletRequest 对象，获取到所有请求的信息。  
+  
+  * servlet请求转发  
+      请求转发的特点：
+     >1、浏览器地址栏没有变化，不会变到转发后的地址
+      2、他们是一次请求
+      3、他们共享Request域中的数据
+      4、可以转发到WEB-INFO目录下
+      5、不能访问工程以外的资源
+  * web中 "/" 斜杠的不同意义   
+    在web中， "/" 斜杠 是一种绝对路径。   
+      * "/" 斜杠 如果被浏览器解析，得到的地址是：http://ip:port/  
+        > \<a href="/">斜杠\</a>  
+      
+      * "/" 斜杠 如果被服务器解析，得到的地址是：http://ip:port/工程路径  
+        1. <url-pattern>/servlet1</url-pattern>  
+        2. servletContext.getRealPath("/");  
+        3. request.getRequestDispatcher("/");  
+      * 特殊情况：response.sendRedirect("/"); 把斜杠发送给浏览器解析，得到http://ip:port/  
+## HttpServletResponse 类  
+* HttpServletResponse类的作用  
+    HttpServletResponse 和 HttpServletRequest 类一样。 每次请求进来，Tomcat服务器都会创建一个Response 对象传递给Servlet程序去使用。HttpServletRequest 表示请求过来的信息，HttpServletResponse表示所有相遇的信息， 我们如果需要设置返回给客户端的信息，都可以通过HttpServletResponse对象来进行设置  
     
-        
+* 两个输出流的说明  
+    字节流：     getOutPutStream()   常用于下载（传递二进制数据）  
+    字符流：    getWriter（）        常用语回传字符串（常用）  
+    两个流同时只能使用一个。使用了字节流，就不能再使用字符流，反之亦然， 否则就会报错  
+* 请求重定向  
+    请求重定向，是指客户端给服务器发请求，然后服务器告诉客户端说。我给你一些地址，你去新的地址访问。叫请求重定向（因为之前的地址可能已经被废弃）。  
+    请求重定向的特点：  
+    > 1、浏览器地址栏会发生变化  
+    2、两次请求  
+    3、不共享Request域中的数据  
+    4、不能访问WEB-INF下的资源  
+    5、可以访问工程外的资源  
+    
+    方式一：
+    ```
+    resp.setStatus(302);
+   //set response header to declare the new location
+   resp.setHeader("Location", "http://localhost:8080/07_SERVLET/redirectto");
+     ```
+    方式二：
+    ```
+    resp.sendRedirect("http://localhost:8080/07_SERVLET/redirectto");
+    ```

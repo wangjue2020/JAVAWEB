@@ -20,6 +20,22 @@
         <servlet-name>Servlet2</servlet-name>
         <servlet-class>com.servlet.Servlet2</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ForwardC</servlet-name>
+        <servlet-class>com.servlet.ForwardC</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResponseServ</servlet-name>
+        <servlet-class>com.servlet.ResponseIOServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RedirectFromServ</servlet-name>
+        <servlet-class>com.servlet.RedirectFromServ</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RedirectToServ</servlet-name>
+        <servlet-class>com.servlet.RedirectToServ</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>RequestAPIServlet</servlet-name>
@@ -36,5 +52,21 @@
     <servlet-mapping>
         <servlet-name>Servlet2</servlet-name>
         <url-pattern>/servlet2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ForwardC</servlet-name>
+        <url-pattern>/forwardc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResponseServ</servlet-name>
+        <url-pattern>/response</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RedirectFromServ</servlet-name>
+        <url-pattern>/redirectfrom</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RedirectToServ</servlet-name>
+        <url-pattern>/redirectto</url-pattern>
     </servlet-mapping>
 </web-app>
