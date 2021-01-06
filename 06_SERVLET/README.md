@@ -78,7 +78,7 @@ ServletConfig类从类名上来看，就知道是Servlet程序的配置信息类
     </servlet>
     ``` 
     
-  ## ServletContext 类
+## ServletContext 类
   * 什么事ServletContext？
     > 1、ServletContext 是一个接口，它表示Servlet上下文对象
     2、一个web工程，只有一个ServletContext对象实例  
@@ -91,4 +91,7 @@ ServletConfig类从类名上来看，就知道是Servlet程序的配置信息类
     > 1、获取web.xml中配置的上下文参数context-param  
     2、获取当前的工程路径，格式:/工程路径  
     3、获取工程部署后在服务器硬盘上的绝对路径  
-    4、像Map一样存取数据
+    4、像Map一样存取数据  
+## HttpServletRequest 类  
+  * HttpServletRequest 类有什么作用  
+       每次只要有请求进入Tomcat服务器，Tomcat服务器就会把请求过来的HTTP协议信息解析好封装到Request对象中。然后传递到Service方法（doGet和doPost） 中给我们使用。我们可以通过HttpServletRequest 对象，获取到所有请求的信息。
