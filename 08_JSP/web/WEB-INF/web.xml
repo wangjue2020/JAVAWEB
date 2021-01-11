@@ -11,4 +11,17 @@
         <servlet-name>PrintHtml</servlet-name>
         <url-pattern>/printHtml</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>searchStudent</servlet-name>
+        <servlet-class>com.servlet.SearchStudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>searchStudent</servlet-name>
+        <url-pattern>/searchStudent</url-pattern>
+    </servlet-mapping>
+    
+    <listener>
+        <listener-class>com.listener.MyServletContextListener</listener-class>
+    </listener>
 </web-app>
