@@ -157,3 +157,6 @@ out.write() VS out.print():
   1、编写一个类去实现ServletContextListener  
   2、实现其两个回调方法   
   3、到web.xml中去配置监听器
+  
+## JSTL 标签库  
+  EL表达式主要是为了替换jsp中的表达式脚本，而标签库则是为了替换代码脚本。 
