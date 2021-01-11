@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/06_SERVLET/06_SERVLET.iml" filepath="$PROJECT_DIR$/06_SERVLET/06_SERVLET.iml" />
       <module fileurl="file://$PROJECT_DIR$/07_SERVLET/07_SERVLET.iml" filepath="$PROJECT_DIR$/07_SERVLET/07_SERVLET.iml" />
       <module fileurl="file://$PROJECT_DIR$/08_JSP/08_JSP.iml" filepath="$PROJECT_DIR$/08_JSP/08_JSP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/09_EL_JSTL/09_EL_JSTL.iml" filepath="$PROJECT_DIR$/09_EL_JSTL/09_EL_JSTL.iml" />
       <module fileurl="file://$PROJECT_DIR$/JAVAWeb.iml" filepath="$PROJECT_DIR$/JAVAWeb.iml" />
       <module fileurl="file://$PROJECT_DIR$/OnlineBook/OnlineBook.iml" filepath="$PROJECT_DIR$/OnlineBook/OnlineBook.iml" />
     </modules>
