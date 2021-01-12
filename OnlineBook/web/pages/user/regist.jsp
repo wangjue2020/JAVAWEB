@@ -1,11 +1,11 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 	<title>尚硅谷会员注册页面</title>
-	<base href="http://localhost:8080/OnlineBook/"/>
-<link type="text/css" rel="stylesheet" href="static/css/style.css" >
-	<script src="static/script/jquery-1.7.2.js"></script>
+	<%--静态包含base标签、css样式、jQuery 文件--%>
+	<%@ include file="/pages/common/header.jsp"%>
 	<script type="text/javascript">
 		$(function(){
 		    $("#sub_btn").click(function(){
@@ -62,7 +62,8 @@
 </style>
 </head>
 <body>
-	<form action="registerServ" method="post">
+	<form action="userServiceServ" method="post">
+		<input type="hidden" name="action" value="register"/>
 		<div id="login_header">
 			<img class="logo_img" alt="" src="static/img/logo.gif" >
 		</div>
@@ -78,24 +79,34 @@
 						<div class="login_box">
 							<div class="tit">
 								<h1>注册尚硅谷会员</h1>
-								<span class="errorMsg"></span>
+								<span class="errorMsg">
+									${requestScope.errorMsg == null?"":requestScope.errorMsg}
+								</span>
 							</div>
 							<div class="form">
-								<form action="regist_success.html">
+								<form action="regist_success.jsp">
 									<label>用户名称：</label>
-									<input class="itxt" type="text" placeholder="请输入用户名" autocomplete="off" tabindex="1" name="username" id="username" />
+									<input class="itxt" type="text" placeholder="请输入用户名"
+										   autocomplete="off" tabindex="1" name="username" id="username"
+											value="${requestScope.username}"/>
 									<br />
 									<br />
 									<label>用户密码：</label>
-									<input class="itxt" type="password" placeholder="请输入密码" autocomplete="off" tabindex="1" name="password" id="password" />
+									<input class="itxt" type="password" placeholder="请输入密码"
+										   autocomplete="off" tabindex="1" name="password" id="password"
+											value="${requestScope.password}"/>
 									<br />
 									<br />
 									<label>确认密码：</label>
-									<input class="itxt" type="password" placeholder="确认密码" autocomplete="off" tabindex="1" name="repwd" id="repwd" />
+									<input class="itxt" type="password" placeholder="确认密码"
+										   autocomplete="off" tabindex="1" name="repwd" id="repwd"
+											value="${requestScope.password}"/>
 									<br />
 									<br />
 									<label>电子邮件：</label>
-									<input class="itxt" type="text" placeholder="请输入邮箱地址" autocomplete="off" tabindex="1" name="email" id="email" />
+									<input class="itxt" type="text" placeholder="请输入邮箱地址"
+										   autocomplete="off" tabindex="1" name="email" id="email"
+											value="${requestScope.email}"/>
 									<br />
 									<br />
 									<label>验证码：</label>
@@ -112,11 +123,8 @@
 					</div>
 				</div>
 			</div>
-		<div id="bottom">
-			<span>
-				尚硅谷书城.Copyright &copy;2015
-			</span>
-		</div>
+		<%--静态包含footer内容--%>
+		<%@ include file="/pages/common/footer.jsp"%>
 	</form>
 </body>
 </html>

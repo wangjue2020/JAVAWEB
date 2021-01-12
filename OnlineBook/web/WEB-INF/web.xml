@@ -3,21 +3,30 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    <servlet>
-        <servlet-name>registerServ</servlet-name>
-        <servlet-class>com.web.RegisterServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>registerServ</servlet-name>
-        <url-pattern>/registerServ</url-pattern>
-    </servlet-mapping>
+    <!--<servlet>-->
+        <!--<servlet-name>registerServ</servlet-name>-->
+        <!--<servlet-class>com.web.RegisterServlet</servlet-class>-->
+    <!--</servlet>-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>registerServ</servlet-name>-->
+        <!--<url-pattern>/registerServ</url-pattern>-->
+    <!--</servlet-mapping>-->
 
+    <!--<servlet>-->
+        <!--<servlet-name>loginServ</servlet-name>-->
+        <!--<servlet-class>com.web.LoginServlet</servlet-class>-->
+    <!--</servlet>-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>loginServ</servlet-name>-->
+        <!--<url-pattern>/loginServ</url-pattern>-->
+    <!--</servlet-mapping>-->
+    
     <servlet>
-        <servlet-name>loginServ</servlet-name>
-        <servlet-class>com.web.LoginServlet</servlet-class>
+        <servlet-name>userServiceServ</servlet-name>
+        <servlet-class>com.web.UserServiceServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>loginServ</servlet-name>
-        <url-pattern>/loginServ</url-pattern>
+        <servlet-name>userServiceServ</servlet-name>
+        <url-pattern>/userServiceServ</url-pattern>
     </servlet-mapping>
 </web-app>

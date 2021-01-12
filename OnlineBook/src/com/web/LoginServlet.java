@@ -19,9 +19,14 @@ public class LoginServlet extends HttpServlet{
         UserAccount login = uas.login(new UserAccount(null, username, password, null));
         if(login == null){
             System.out.println("No such user");
-            req.getRequestDispatcher("/pages/user/login.html").forward(req, resp);
+            //把错误信息，和回显的表单想信息，保存到request域中
+            req.setAttribute("errorMsg", "username or password is not correct!");
+            req.setAttribute("username",username);
+            req.setAttribute("password", password);
+
+            req.getRequestDispatcher("/pages/user/login.jsp").forward(req, resp);
         }else{
-            req.getRequestDispatcher("pages/user/login_success.html").forward(req,resp);
+            req.getRequestDispatcher("pages/user/login_success.jsp").forward(req,resp);
         }
 
 
