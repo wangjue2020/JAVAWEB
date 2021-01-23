@@ -8,11 +8,11 @@ public interface UserAccountDAO {
      * @param username
      * @return
      */
-    public UserAccount selectUserAccountByUsername(String username);
+    UserAccount selectUserAccountByUsername(String username);
 
-    public int saveUserAccount(UserAccount userAccount);
+    int saveUserAccount(UserAccount userAccount);
 
-    public UserAccount selectUserAccountByUsernameAndPassword(String username, String password);
+    UserAccount selectUserAccountByUsernameAndPassword(String username, String password);
 
 
 }

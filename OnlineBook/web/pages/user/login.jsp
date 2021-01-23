@@ -30,7 +30,7 @@
 							<div class="msg_cont">
 								<b></b>
 								<span class="errorMsg">
-									${requestScope.errorMsg == null ? "请输入用户名和密码" :requestScope.errorMsg}</span>
+									${requestScope.errorMsg}</span>
 							</div>
 							<div class="form">
 
@@ -38,13 +38,13 @@
 									<label>用户名称：</label>
 									<input class="itxt" type="text" placeholder="请输入用户名"
 										   autocomplete="off" tabindex="1" name="username"
-										   value="${requestScope.username == null?"":requestScope.username}"/>
+										   value="${requestScope.username}"/>
 									<br />
 									<br />
 									<label>用户密码：</label>
 									<input class="itxt" type="password" placeholder="请输入密码"
 										   autocomplete="off" tabindex="1" name="password"
-											value="${requestScope.password == null?"":requestScope.password}"/>
+											value="${requestScope.password}"/>
 									<br />
 									<br />
 									<input type="submit" value="登录" id="sub_btn" />

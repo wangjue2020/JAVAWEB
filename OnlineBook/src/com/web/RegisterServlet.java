@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 不再使用，已经被UserServiceServlet替代
+ */
+@Deprecated
 public class RegisterServlet extends HttpServlet{
     private UserAccountService uas = new UserAccountServiceImpl();
     @Override

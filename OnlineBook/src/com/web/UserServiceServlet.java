@@ -3,39 +3,15 @@ package com.web;
 import com.bean.UserAccount;
 import com.service.UserAccountService;
 import com.service.impl.UserAccountServiceImpl;
+import com.utils.WebUtils;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+public class UserServiceServlet extends BaseServlet{
 
-public class UserServiceServlet extends HttpServlet{
     private UserAccountService uas = new UserAccountServiceImpl();
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String action = req.getParameter("action");
-//        if("login".equals(action)){
-//            login(req,resp);
-//        }else if("register".equals(action)){
-//            register(req,resp);
-//        }
-        //利用反射简化if， else if
-        try {
-            Method declaredMethod = UserServiceServlet.class.getDeclaredMethod(action,HttpServletRequest.class,HttpServletResponse.class);
-            declaredMethod.invoke(this,req,resp);
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-
-    }
-
     protected void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
@@ -58,6 +34,10 @@ public class UserServiceServlet extends HttpServlet{
         String password = req.getParameter("password");
         String email = req.getParameter("email");
         String code = req.getParameter("code");
+
+        UserAccount  ua = WebUtils.copyParamToBean(req.getParameterMap(), new UserAccount());
+
+        System.out.println(ua);
         //要求验证码为abcde
         if("abcde".equalsIgnoreCase(code)){
             if(uas.existsUsername(username)){
@@ -81,10 +61,5 @@ public class UserServiceServlet extends HttpServlet{
             req.setAttribute("email", email);
             req.getRequestDispatcher("/pages/user/regist.jsp").forward(req, resp);
         }
-        System.out.println(username);
-        System.out.println(password);
-        System.out.println(email);
-        req.getRequestDispatcher("/pages/user/regist_success.jsp").forward(req,resp);
-
     }
 }

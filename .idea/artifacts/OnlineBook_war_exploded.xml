@@ -10,6 +10,8 @@
         <element id="directory" name="lib">
           <element id="library" level="module" name="JUnit4" module-name="OnlineBook" />
           <element id="library" level="project" name="OnlineWeb" />
+          <element id="file-copy" path="$PROJECT_DIR$/OnlineBook/web/WEB-INF/lib/commons-beanutils-1.8.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/OnlineBook/web/WEB-INF/lib/commons-logging-1.1.1.jar" />
         </element>
       </element>
     </root>

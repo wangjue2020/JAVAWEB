@@ -80,7 +80,7 @@
 							<div class="tit">
 								<h1>注册尚硅谷会员</h1>
 								<span class="errorMsg">
-									${requestScope.errorMsg == null?"":requestScope.errorMsg}
+									${requestScope.errorMsg}
 								</span>
 							</div>
 							<div class="form">

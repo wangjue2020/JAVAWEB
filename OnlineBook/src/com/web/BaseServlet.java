@@ -1,0 +1,32 @@
+package com.web;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+public class BaseServlet extends HttpServlet{
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String action = req.getParameter("action");
+//        if("login".equals(action)){
+//            login(req,resp);
+//        }else if("register".equals(action)){
+//            register(req,resp);
+//        }
+        //利用反射简化if， else if
+        try {
+            Method declaredMethod = UserServiceServlet.class.getDeclaredMethod(action,HttpServletRequest.class,HttpServletResponse.class);
+            declaredMethod.invoke(this,req,resp);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+}
