@@ -29,4 +29,14 @@
         <servlet-name>userServiceServ</servlet-name>
         <url-pattern>/userServiceServ</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>bookServlet</servlet-name>
+        <servlet-class>com.web.BookServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>bookServlet</servlet-name>
+        <url-pattern>/manager/bookServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

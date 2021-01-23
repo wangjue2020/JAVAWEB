@@ -8,18 +8,15 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public class BaseServlet extends HttpServlet{
+public  class BaseServlet<T> extends HttpServlet{
+
+
+
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         String action = req.getParameter("action");
-//        if("login".equals(action)){
-//            login(req,resp);
-//        }else if("register".equals(action)){
-//            register(req,resp);
-//        }
-        //利用反射简化if， else if
         try {
-            Method declaredMethod = UserServiceServlet.class.getDeclaredMethod(action,HttpServletRequest.class,HttpServletResponse.class);
+            Method declaredMethod = this.getClass().getDeclaredMethod(action,HttpServletRequest.class,HttpServletResponse.class);
             declaredMethod.invoke(this,req,resp);
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
@@ -29,4 +26,10 @@ public class BaseServlet extends HttpServlet{
             e.printStackTrace();
         }
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
+
 }
