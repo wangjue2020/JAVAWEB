@@ -19,7 +19,11 @@ public class BookServlet extends BaseServlet<BookServlet>{
     }
 
     protected void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        String deleteId = req.getParameter("deleteId");
+        System.out.println(deleteId);
+        bookService.deleteBook(Integer.parseInt(deleteId));
+//        req.getRequestDispatcher("/pages/manager/book_manager.jsp").forward(req, resp);
+        select(req, resp);
     }
 
     protected void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -29,9 +33,7 @@ public class BookServlet extends BaseServlet<BookServlet>{
     protected void select(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Book> books = bookService.selectBooks();
         req.setAttribute("books", books);
-//        System.out.println(books);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/pages/manager/book_manager.jsp");
-//        System.out.println(requestDispatcher.);
         requestDispatcher.forward(req, resp);
     }
 }

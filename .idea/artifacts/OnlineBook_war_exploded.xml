@@ -12,6 +12,8 @@
           <element id="library" level="project" name="OnlineWeb" />
           <element id="file-copy" path="$PROJECT_DIR$/OnlineBook/web/WEB-INF/lib/commons-beanutils-1.8.0.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/OnlineBook/web/WEB-INF/lib/commons-logging-1.1.1.jar" />
+          <element id="library" level="module" name="mysql-connector-java-5.1.7-bin" module-name="OnlineBook" />
+          <element id="library" level="module" name="taglibs-standard-impl-1.2.1" module-name="OnlineBook" />
         </element>
       </element>
     </root>

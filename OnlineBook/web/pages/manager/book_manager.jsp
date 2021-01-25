@@ -35,7 +35,7 @@
 					<td>${row.sales}</td>
 					<td>${row.stock}</td>
 					<td><a href="book_edit.jsp">Edit</a></td>
-					<td><a href="#">Delete</a></td>
+					<td><a href="manager/bookServlet?deleteId=${row.id}&action=delete">Delete</a></td>
 				</tr>
 			</c:forEach>
 			<tr>
