@@ -3,6 +3,7 @@ package com.web;
 import com.bean.Book;
 import com.service.BookService;
 import com.service.impl.BookServiceImpl;
+import com.utils.WebUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -27,13 +28,32 @@ public class BookServlet extends BaseServlet<BookServlet>{
     }
 
     protected void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        req.setCharacterEncoding("utf-8");
+        String id = req.getParameter("id");
+        Book book = bookService.selectBookById(Integer.parseInt(id));
+        book = WebUtils.copyParamToBean(req.getParameterMap(), book);
+//        Book book = bookService.selectBookById(Integer.parseInt(id));
+//        book.setName(req.getParameter("book_name"));
+//        book.setAuthor(req.getParameter("book_author"));
+//        book.setPrice(Double.valueOf(req.getParameter("book_price")));
+//        book.setSales(Integer.parseInt(req.getParameter("book_sales")));
+//        book.setStock(Integer.parseInt(req.getParameter("book_stock")));
+        bookService.updateBook(book);
+        selectOne(req, resp);
     }
 
     protected void select(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Book> books = bookService.selectBooks();
         req.setAttribute("books", books);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/pages/manager/book_manager.jsp");
+        requestDispatcher.forward(req, resp);
+    }
+
+    protected void selectOne(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String id = req.getParameter("id");
+        Book book = bookService.selectBookById(Integer.parseInt(id));
+        req.setAttribute("book", book);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/pages/manager/book_edit.jsp");
         requestDispatcher.forward(req, resp);
     }
 }

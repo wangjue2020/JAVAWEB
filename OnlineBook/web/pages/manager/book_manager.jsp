@@ -27,14 +27,14 @@
 				<td>库存</td>
 				<td colspan="2">操作</td>
 			</tr>
-			<c:forEach items="${requestScope.books}" var="row">
+			<c:forEach items="${books}" var="row">
 				<tr>
 					<td>${row.name}</td>
 					<td>${row.price}</td>
 					<td>${row.author}</td>
 					<td>${row.sales}</td>
 					<td>${row.stock}</td>
-					<td><a href="book_edit.jsp">Edit</a></td>
+					<td><a href="manager/bookServlet?action=selectOne&id=${row.id}">Edit</a></td>
 					<td><a href="manager/bookServlet?deleteId=${row.id}&action=delete">Delete</a></td>
 				</tr>
 			</c:forEach>

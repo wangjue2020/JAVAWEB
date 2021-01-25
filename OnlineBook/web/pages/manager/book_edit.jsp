@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<%--<meta charset="UTF-8">--%>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>编辑图书</title>
 	<%--静态包含base标签、css样式、jQuery 文件--%>
 	<%@ include file="/pages/common/header.jsp"%>
@@ -23,14 +24,16 @@
 </head>
 <body>
 		<div id="header">
-			<img class="logo_img" alt="" src="../../static/img/logo.gif" >
+			<img class="logo_img" alt="" src="static/img/logo.gif" >
 			<span class="wel_word">编辑图书</span>
 
 			<%@ include file="/pages/common/manager_menu.jsp"%>
 		</div>
 		
 		<div id="main">
-			<form action="book_manager.jsp">
+			<form action="manager/bookServlet" method="post" accept-charset="UTF-8">
+				<input type="hidden" name="action" value="update"/>
+				<input type="hidden" name="id" value="${book.id}"/>
 				<table>
 					<tr>
 						<td>名称</td>
@@ -41,11 +44,11 @@
 						<td colspan="2">操作</td>
 					</tr>		
 					<tr>
-						<td><input name="book_name" type="text" value="时间简史"/></td>
-						<td><input name="book_price" type="text" value="30.00"/></td>
-						<td><input name="book_author" type="text" value="霍金"/></td>
-						<td><input name="book_sales" type="text" value="200"/></td>
-						<td><input name="book_stock" type="text" value="300"/></td>
+						<td><input name="name" type="text" value="${book.name}"/></td>
+						<td><input name="price" type="text" value="${book.price}"/></td>
+						<td><input name="author" type="text" value="${book.author}"/></td>
+						<td><input name="sales" type="text" value="${book.sales}"/></td>
+						<td><input name="stock" type="text" value="${book.stock}"/></td>
 						<td><input type="submit" value="提交"/></td>
 					</tr>	
 				</table>
