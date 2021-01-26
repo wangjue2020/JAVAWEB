@@ -7,11 +7,16 @@
 <title>图书管理</title>
 	<%--静态包含base标签、css样式、jQuery 文件--%>
 	<%@ include file="/pages/common/header.jsp"%>
+	<script type="text/javascript">
+		function deleteBook() {
+		    return confirm("Confirm delete this book's record?");
+		}
+	</script>
 </head>
 <body>
 	
 	<div id="header">
-		<img class="logo_img" alt="" src="../../static/img/logo.gif" >
+		<img class="logo_img" alt="" src="static/img/logo.gif" >
 		<span class="wel_word">图书管理系统</span>
 
 		<%@ include file="/pages/common/manager_menu.jsp"%>
@@ -35,7 +40,7 @@
 					<td>${row.sales}</td>
 					<td>${row.stock}</td>
 					<td><a href="manager/bookServlet?action=selectOne&id=${row.id}">Edit</a></td>
-					<td><a href="manager/bookServlet?deleteId=${row.id}&action=delete">Delete</a></td>
+					<td><a href="manager/bookServlet?deleteId=${row.id}&action=delete" onclick="return deleteBook();">Delete</a></td>
 				</tr>
 			</c:forEach>
 			<tr>
@@ -45,7 +50,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td><a href="book_edit.jsp">添加图书</a></td>
+				<td><a href="pages/manager/book_edit.jsp">添加图书</a></td>
 			</tr>
 		</table>
 	</div>

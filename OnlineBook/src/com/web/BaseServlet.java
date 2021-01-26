@@ -15,6 +15,7 @@ public  class BaseServlet<T> extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         String action = req.getParameter("action");
+        System.out.println(action);
         try {
             Method declaredMethod = this.getClass().getDeclaredMethod(action,HttpServletRequest.class,HttpServletResponse.class);
             declaredMethod.invoke(this,req,resp);

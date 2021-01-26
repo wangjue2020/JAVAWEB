@@ -32,7 +32,8 @@
 		
 		<div id="main">
 			<form action="manager/bookServlet" method="post" accept-charset="UTF-8">
-				<input type="hidden" name="action" value="update"/>
+				${book.id == null || book.id == ''}
+				<input type="hidden" name="action" value="${book.id == null || book.id == ''? 'add' : 'update'}"/>
 				<input type="hidden" name="id" value="${book.id}"/>
 				<table>
 					<tr>

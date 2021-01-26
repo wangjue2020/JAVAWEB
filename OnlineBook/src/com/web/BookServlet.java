@@ -16,7 +16,9 @@ public class BookServlet extends BaseServlet<BookServlet>{
     private BookService bookService = new BookServiceImpl();
 
     protected void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        Book book = WebUtils.copyParamToBean(req.getParameterMap(), new Book());
+        bookService.addBook(book);
+        select(req, resp);
     }
 
     protected void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,6 +32,8 @@ public class BookServlet extends BaseServlet<BookServlet>{
     protected void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         String id = req.getParameter("id");
+        if(id == null)
+            add(req, resp);
         Book book = bookService.selectBookById(Integer.parseInt(id));
         book = WebUtils.copyParamToBean(req.getParameterMap(), book);
 //        Book book = bookService.selectBookById(Integer.parseInt(id));
